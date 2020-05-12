@@ -7,7 +7,7 @@ function OpeningPosition(){
 OpeningPosition.prototype.draw = function(play){
 
 	ctx.clearRect(0,0,play.width,play.height);
-	ctx.font = "80px Comic Sans MS";
+	ctx.font = "80px Arial";
 	ctx.textAlign = "center";
 	const gradient = ctx.createLinearGradient((play.width/2-180),(play.height/2),(play.width/2+180),(play.height/2));
 	gradient.addColorStop("0","yellow");
@@ -19,14 +19,14 @@ OpeningPosition.prototype.draw = function(play){
 
 
 	//press space to start
-	ctx.font= "40px Comic Sans MS";
+	ctx.font= "40px Arial";
 	ctx.fillStyle = "#D7DF01";
 	ctx.fillText("Press Space to Start the game",play.width/2,play.height/2);
 
 	//game controls
-	ctx.fillStyle = "#2e2f00";
-	ctx.filltext("Game controls",play.width/2,play.height/2+210);
-	ctx.fillText("Left Arrow",play.width/2,play.height/2+260);
-	ctx.fillText("Right Arrow",play.width/2,play.height/2+300);
-	ctx.fillText("Space : Fire ",play.width/2,play.height/2+340);
+	ctx.fillStyle = "#D7DF01";
+	ctx.fillText("Game controls",play.width/2,play.height/2 + 210);
+	ctx.fillText("Left Arrow: ,move left",play.width/2,play.height/2 + 260);
+	ctx.fillText("Right Arrow: move right",play.width/2,play.height/2 + 300);
+	ctx.fillText("Space : Fire ",play.width/2,play.height/2 + 340);
 }

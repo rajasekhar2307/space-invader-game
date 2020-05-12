@@ -32,7 +32,7 @@ function GameBasics(canvas){
 		top: 150,
 		bottom: 650,
 		left : 100,
-		right:800,
+		right:800
 
 	};
 
@@ -47,7 +47,7 @@ function GameBasics(canvas){
 }
 
 //Return to the current game position,status,always returns to the top of the position container
-GameBasics.prototype.presentPostion = function() {
+GameBasics.prototype.presentPosition = function() {
 	return this.positionContainer.length > 0? this.positionContainer[this.positionContainer.length -1] : null;
 };
 
@@ -84,7 +84,7 @@ GameBasics.prototype.popPosition = function(position){
 
 GameBasics.prototype.start = function(){
 
-	setInterval(function(){gameLoop(play);},this.setting.updateSeconds *1000);
+	setInterval(function(){gameLoop(play);},this.setting.updateSeconds * 1000);
 	//go to the Opening position
 	this.goToPosition(new OpeningPosition());
 };
