@@ -1,0 +1,10 @@
+#ufoCanvas {
+
+	border: 1px solid black;
+	margin: 0 auto;
+	
+	background-image: url("../images/bcg.jpg");
+	background-size: 100% 100%;
+
+
+}
