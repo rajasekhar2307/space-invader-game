@@ -29,4 +29,11 @@ OpeningPosition.prototype.draw = function(play){
 	ctx.fillText("Left Arrow: ,move left",play.width/2,play.height/2 + 260);
 	ctx.fillText("Right Arrow: move right",play.width/2,play.height/2 + 300);
 	ctx.fillText("Space : Fire ",play.width/2,play.height/2 + 340);
-}
+};
+
+
+OpeningPosition.prototype.keyDown = function(play,keyboardCode){
+	if(keyboardCode == 32 ){
+		play.goToPosition(new TransferPosition(play.level));
+	}
+};

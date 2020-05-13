@@ -36,14 +36,23 @@ function GameBasics(canvas){
 
 	};
 
+	//initial values
+	this.level = 1;
+	this.score = 0;
+	this.shields = 2;
+
 	this.setting = {
 
 		//game settings
 		updateSeconds: (1/60),
+		spaceshipSpeed: 200,
 	};
 
 	//collect the different positions and states os the game
 	this.positionContainer = [];
+
+	//store pressed keys
+	this.pressedKeys ={};
 }
 
 //Return to the current game position,status,always returns to the top of the position container
@@ -89,8 +98,25 @@ GameBasics.prototype.start = function(){
 	this.goToPosition(new OpeningPosition());
 };
 
-const play = new GameBasics(canvas);
-play.start();
+
+
+
+//notifies the game when the key is pressed
+GameBasics.prototype.keyDown = function(keyboardCode){
+	//store the pressed key in the pressedkeys
+	this.pressedKeys[keyboardCode]= true;
+	//console.log(this.pressedKeys);
+	//it calls the present postion keyDown function
+	if(this.presentPosition() && this.presentPosition().keyDown){
+		this.presentPosition().keyDown(this,keyboardCode);
+	}
+};
+
+
+GameBasics.prototype.keyUp = function(keyboardCode){
+	//delete the released key from the pressedkeys
+	delete this.pressedKeys[keyboardCode];
+};
 
 function gameLoop(play){
 
@@ -108,3 +134,20 @@ function gameLoop(play){
 		}
 	}
 }
+
+window.addEventListener("keydown",function(e){
+	const keyboardCode = e.which || event.keyCode;
+	if(keyboardCode == 37 || keyboardCode == 39 || keyboardCode ==32){e.preventDefault();}
+	play.keyDown(keyboardCode);
+
+});
+
+window.addEventListener("keyup",function(e){
+	const keyboardCode = e.which || event.keyCode ;
+	play.keyUp(keyboardCode);
+
+});
+
+
+const play = new GameBasics(canvas);
+play.start();
