@@ -5,7 +5,7 @@ function TransferPosition(level){
 	this.fontColor= 255;
 
 
-}
+};
 TransferPosition.prototype.update = function(play){
 
 	this.fontSize -=1;
@@ -14,7 +14,7 @@ TransferPosition.prototype.update = function(play){
 	if(this.fontSize < 1){
 		play.goToPosition(new InGamePosition(play.settings,this.level));
 	}
-}
+};
 
 TransferPosition.prototype.draw = function(play){
 	ctx.clearRect(0,0,play.width,play.height);
@@ -24,4 +24,4 @@ TransferPosition.prototype.draw = function(play){
 	//ctx.fillStyle = '#D7DF01';
 	ctx.fillStyle = "rgba(255, "+this.fontColor + ","+this.fontColor + ",1)";
 	ctx.fillText("Level  "+this.level,play.width/2,play.height/2);
-}
+};

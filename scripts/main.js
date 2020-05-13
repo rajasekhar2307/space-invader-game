@@ -41,11 +41,18 @@ function GameBasics(canvas){
 	this.score = 0;
 	this.shields = 2;
 
-	this.setting = {
+	this.settings = {
 
 		//game settings
 		updateSeconds: (1/60),
 		spaceshipSpeed: 200,
+		bulletSpeed: 130,
+		bulletMaxFrequency: 250,
+
+		ufoLines : 4,
+		ufoColumns: 8,
+		ufoSpeed: 35,
+
 	};
 
 	//collect the different positions and states os the game
@@ -93,7 +100,7 @@ GameBasics.prototype.popPosition = function(position){
 
 GameBasics.prototype.start = function(){
 
-	setInterval(function(){gameLoop(play);},this.setting.updateSeconds * 1000);
+	setInterval(function(){gameLoop(play);},this.settings.updateSeconds * 1000);
 	//go to the Opening position
 	this.goToPosition(new OpeningPosition());
 };
