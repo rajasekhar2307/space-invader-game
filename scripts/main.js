@@ -37,7 +37,7 @@ function GameBasics(canvas){
 	};
 
 	//initial values
-	this.level = 1;
+	this.level = 10;
 	this.score = 0;
 	this.shields = 2;
 
@@ -52,6 +52,12 @@ function GameBasics(canvas){
 		ufoLines : 4,
 		ufoColumns: 8,
 		ufoSpeed: 35,
+		ufoSinkingValue : 30,//value of sinking
+
+		bombSpeed:75,
+		bombFrequency : 0.05,
+
+		pointsPerUFO : 25,
 
 	};
 
@@ -157,4 +163,6 @@ window.addEventListener("keyup",function(e){
 
 
 const play = new GameBasics(canvas);
+play.sounds = new Sounds();
+play.sounds.init();
 play.start();
