@@ -5,7 +5,10 @@
 	display: block;
 
 	background-image: url('../images/bcg.jpg');
-	background-size: 100% 100%;
+	background-size: auto 100%;
+	opacity :1;
+
+	/*text-shadow: 6px 6px 10px #000000;*/
 
 
 }
@@ -13,3 +16,4 @@
 body {
 	background-image: url(../images/bodybcg.jpg);
 }
+
